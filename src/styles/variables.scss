@@ -1,0 +1,44 @@
+// Path
+$assets-image-url: "/assets/";
+
+// Font Family
+$font-path: "/fonts/Inter";
+$font-family: 'Inter', sans-serif;
+
+// Colors
+$brand-color: #E91E63;
+$brand-secondary-color: #12e7d9;
+$error: #f9423a;
+$warning: #ffbf00;
+$info: #0089ff;
+$success: #89ce23;
+
+$crayola: #04FCD8;
+
+// Black, White and Grey Scale
+$white: #fff;
+$black: #000;
+
+// Breakpoint
+$break-desk: 80em;
+$break-tablet-land: 64em;
+$break-tablet-port: 48em;
+$break-phone: 30em;
+$break-small-phone: 20em;
+
+
+// Dark theme variables
+:root[data-theme='dark'] {
+
+  // Template
+  --template-border: #fff;
+  --template-stripes: #464646;
+
+  // Anchor
+  --anchor-color: #f5f5f5;
+  --anchor-hover-color: #E91E63;
+
+  // Navigator
+  --navigator-link-color: #f5f5f5;
+  --navigator-link-hover-color: #E91E63;
+}

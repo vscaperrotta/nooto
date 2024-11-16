@@ -1,0 +1,49 @@
+// MEDIA QUERY MANAGER
+//   0 - 480px:      Phone
+//   480px - 768px:    Tablet portrait
+//   768px - 1024px:   Tablet landscape
+//   1280px + :        Desktop
+//   $breakpoint arguement choices:
+//   - desktop
+//   - tab-land
+//   - tab-port
+//   - phone
+//   ORDER: Base + typography > general layout + grid > page layout > components
+//   1em = 16px
+
+@mixin respond($breakpoint) {
+	// 1280px
+	@if $breakpoint == desktop {
+		@media only screen and (max-width: $break-desk) {
+			@content;
+		}
+	}
+
+	// 1024px
+	@if $breakpoint == tab-land {
+		@media only screen and (max-width: $break-tablet-land) {
+			@content;
+		}
+	}
+
+	// 768px
+	@if $breakpoint == tab-port {
+		@media only screen and (max-width: $break-tablet-port) {
+			@content;
+		}
+	}
+
+	// 480px
+	@if $breakpoint == phone {
+		@media only screen and (max-width: $break-phone) {
+			@content;
+		}
+	}
+
+	// 320px
+	@if $breakpoint == small-phone {
+		@media only screen and (max-width: $break-small-phone) {
+			@content;
+		}
+	}
+}

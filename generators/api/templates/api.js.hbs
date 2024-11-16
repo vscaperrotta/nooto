@@ -1,0 +1,17 @@
+
+// {{camelCase methodName}}
+export async function {{camelCase methodName}}(params) {
+  let data;
+
+  try {
+    data = await axiosInstance({
+    method: '{{type}}',
+    url: '{{url}}',
+    data: { ...params },
+    });
+    return handlingResponse(data);
+  } catch (error) {
+    return handlingResponse(error);
+  }
+}
+$&
