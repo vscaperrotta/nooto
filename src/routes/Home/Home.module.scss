@@ -1,0 +1,65 @@
+/**
+ *
+ * Home Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 16-Nov-2024
+*/
+
+
+.container {
+
+  .header {
+    margin-bottom: 6rem;
+  }
+
+  .header {
+    font-size: 4.8rem;
+    margin: 0 0 4rem;
+  }
+
+  .newNote {
+    border-bottom: .1rem solid rgba($black, .2);
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .list {
+    max-width: 102.4rem;
+    width: 100%;
+
+    .item {
+      margin-bottom: 4rem;
+      width: 100%;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.noNotes {
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
+
+    .header {
+      margin: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .title {
+      font-size: 5.6rem;
+    }
+
+    .subtitle {
+      font-size: 3.2rem;
+      opacity: .4;
+    }
+  }
+}

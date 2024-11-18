@@ -1,0 +1,77 @@
+/**
+ *
+ * Note Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 17-Nov-2024
+*/
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.6rem;
+  width: 100%;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .title {
+    font-weight: 700;
+    line-height: 3.2rem;
+    margin-bottom: .8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .description {
+    margin-bottom: .8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .date {
+    color: $black;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  .action {
+    background: transparent;
+    border: 0;
+    height: 4rem;
+    opacity: .5;
+    padding: 1rem;
+    transition: all .3s ease-in-out;
+    width: 4rem;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+
+  &.onClick {
+    font-style: italic;
+    opacity: .4;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 
-/** @function
+/**
  * * Handling the API Rest resposnse, and return data and different message for status code
  * @name handlingResponse
  * @param {object} data - The response of method
@@ -28,7 +28,7 @@ export const handlingResponse = (data) => {
 	return { response: data };
 };
 
-/**  @function
+/**
  * * Handling the null case and set to safe
  *
  * @name nullSafe
@@ -44,3 +44,26 @@ export const nullSafe = (func, fallbackValue) => {
 		return fallbackValue;
 	}
 };
+
+/**
+ * Creates an action object with a type and payload.
+ *
+ * @function createAction
+ * @param {string} type - The type of the action.
+ * @param {object} [payload={}] - The payload of the action. Default is an empty object.
+ * @returns {object} - An action object with type and payload properties.
+ *
+ * @example
+ * const action = createAction('ADD_ITEM', { id: 1, name: 'Apple' });
+ * console.log(action); // { type: 'ADD_ITEM', payload: { id: 1, name: 'Apple' } }
+ */
+export function createAction(type, payload = {}) {
+	return {
+		type,
+		payload,
+	};
+}
+
+export function generateId() {
+	return `${Math.floor(Math.random() * 10000)}-${Math.floor(Math.random() * 10000)}`;
+}
