@@ -4,6 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: $font-family;
   margin: 0;
   padding: 0;
 }
@@ -11,7 +12,6 @@
 html {
   box-sizing: border-box;
 
-  font-family: $font-family;
   // This defines what is 1rem
   font-size: 62.5%; // 1 rem = 10px; 10px/16px = 62.5%
 
@@ -26,7 +26,6 @@ html {
 
 body {
   flex: 1 0 auto;
-  font-family: $font-family;
   font-size: 1.8rem;
   height: 100%;
   letter-spacing: .1rem;
@@ -45,7 +44,6 @@ select,
 textarea {
   // hide Spinner in Input Number for firefox
   appearance: textfield;
-  font-family: $font-family;
 }
 
 input:-webkit-autofill,
@@ -57,7 +55,6 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  font-family: $font-family;
   transition: background-color 5000s ease-in-out 0s; // avoid webkit-autofill browser background color
 }
 
@@ -65,7 +62,6 @@ input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
   // hide Spinner in Input Number for every browser except firefox
   appearance: none;
-  font-family: $font-family;
   margin: 0;
 }
 

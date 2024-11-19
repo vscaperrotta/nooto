@@ -14,9 +14,13 @@
   font-size: 3.2rem;
   resize: none;
   outline: 0;
+  overflow: hidden;
+  overflow-wrap: break-word;
   width: 100%;
 
-  &.content {
-    min-height: 30rem;
+  &.isTitle {
+    font-weight: 700;
   }
+
+  // &.isContent {}
 }

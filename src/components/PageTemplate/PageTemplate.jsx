@@ -12,7 +12,12 @@ import styles from './PageTemplate.module.scss';
 
 const PageTemplate = (props) => {
   return (
-    <div className={`${styles.container} ${props.className}`}>
+    <div className={`
+      ${styles.container}
+      ${props.isDetail ? styles.isDetail : ''}
+      ${props.isAbout ? styles.isAbout : ''}
+      ${props.className}`
+    }>
       {props.children}
     </div>
   )
@@ -21,6 +26,8 @@ const PageTemplate = (props) => {
 PageTemplate.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  isDetail: PropTypes.bool,
+  isAbout: PropTypes.bool,
 };
 
 export default PageTemplate;

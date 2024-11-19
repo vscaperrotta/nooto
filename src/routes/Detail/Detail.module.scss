@@ -10,12 +10,17 @@
 
 .container {
 
+  .content {
+    max-width: 102.4rem;
+    width: 100%;
+  }
+
   .title {
     margin-bottom: 4rem;
     width: 100%;
   }
 
-  .content {
+  .text {
     width: 100%;
   }
 }

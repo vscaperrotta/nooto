@@ -64,8 +64,12 @@
     }
   }
 
+  .icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
   &.onClick {
-    font-style: italic;
     opacity: .4;
     transition: all .3s ease-in-out;
 

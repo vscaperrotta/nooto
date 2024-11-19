@@ -15,4 +15,24 @@
   min-height: calc(100vh - 6rem);
   padding: 24rem 6rem 6rem;
   width: 100%;
+
+  @include respond(tab-land) {
+    padding: 7.2rem 2.4rem;
+  }
+
+  &.isDetail {
+    padding: 12rem 6rem 6rem;
+
+    @include respond(tab-land) {
+      padding: 7.2rem 2.4rem;
+    }
+  }
+
+  &.isAbout {
+    padding: 24rem 6rem 6rem;
+
+    @include respond(tab-land) {
+      padding: 7.2rem 2.4rem;
+    }
+  }
 }

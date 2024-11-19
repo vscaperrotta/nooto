@@ -9,6 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'Components/Footer';
+import ActionsBar from 'Components/ActionsBar';
 import styles from './Template.module.scss';
 
 /**
@@ -18,6 +19,7 @@ import styles from './Template.module.scss';
 const Template = (props) => {
   return (
     <main className={styles.main}>
+      <ActionsBar />
       <div className={styles.content}>
         {props.children}
       </div>

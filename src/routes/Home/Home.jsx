@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { nullSafe } from 'Utils/globalMethods';
+import icons from 'Database/icons';
 import PageTemplate from 'Components/PageTemplate';
 import Note from 'Components/Note';
 import * as actions from 'Store/actions/notes.js';
@@ -22,18 +23,13 @@ const Home = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Fetch data from API or local storage
-    // dispatch(actions.doFetchNotes())
-    // console.log('Fetching data from redux state storage')
-  }, [])
-
   function handleNewNote(id) {
     navigate({ pathname: '/note' })
   }
 
   function handleEdit(id) {
-    console.log(`Edit ${id}`);
+    dispatch(actions.doEditNote(id))
+    navigate({ pathname: '/note' })
   }
 
   function handleDelete(id) {
@@ -78,11 +74,13 @@ const Home = (props) => {
               date={moment(item.date).format('GG/MM/YYYY')}
               actions={[
                 {
-                  label: 'E',
+                  src: icons.edit.src,
+                  alt: icons.edit.alt,
                   onClick: () => handleEdit(item.id),
                 },
                 {
-                  label: 'D',
+                  src: icons.trash.src,
+                  alt: icons.trash.alt,
                   onClick: () => handleDelete(item.id),
                 },
               ]}

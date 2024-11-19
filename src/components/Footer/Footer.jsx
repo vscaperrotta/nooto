@@ -9,6 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import Anchor from 'Components/Anchor';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -18,13 +19,24 @@ const Footer = () => {
     navigate({ pathname: '/about' })
   }
 
+  function handleSettings() {
+    alert('Settings');
+  }
+
   return (
     <div className={styles.container}>
-      <button
+      <Anchor
+        label='About'
         onClick={() => handleAbout()}
-      >
-        About
-      </button>
+      />
+      <Anchor
+        label='Settings'
+        onClick={() => handleSettings()}
+      />
+      <Anchor
+        label='Code'
+        href='https://github.com/vscaperrotta/remind.me'
+      />
     </div>
   )
 }
