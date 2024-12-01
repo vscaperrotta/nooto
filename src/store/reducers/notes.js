@@ -1,6 +1,6 @@
 /*
  *
- * Home Reducer
+ * Notes Reducer
  *
  * @author Vittorio Scaperrotta
  * @date 16-Nov-2024
@@ -10,7 +10,7 @@
 import produce from 'immer';
 import _ from 'lodash';
 import { nullSafe } from 'Utils/globalMethods';
-import { actionsType } from '../actions/notes';
+import { actionsType } from 'Store/actions/notes';
 
 const ACTION_HANDLERS = {
   // @generator reducer:type:action
@@ -32,6 +32,9 @@ const ACTION_HANDLERS = {
   [actionsType.DO_RESET_DETAIL]: produce((draft, action) => {
     draft.detail = null;
   }),
+  [actionsType.DO_CONFIRM_SAVE]: produce((draft, action) => {
+    draft.save = action.payload;
+  }),
 };
 
 // The initial state of the food reducer
@@ -40,6 +43,7 @@ const initialState = {
   detail: null,
   loading: false,
   error: null,
+  save: false,
 };
 
 const Notes = (state = initialState, action) => {

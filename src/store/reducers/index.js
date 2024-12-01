@@ -1,10 +1,10 @@
 import notes from 'Store/reducers/notes.js';
-import detail from 'Store/reducers/detail.js';
+import modals from 'Store/reducers/modals.js';
 // @generator reducer:import
 
 const allReducer = {
   notes: notes,
-  detail: detail,
+  modals: modals,
   // @generator reducer:export
 };
 

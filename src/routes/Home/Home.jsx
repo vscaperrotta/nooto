@@ -15,7 +15,8 @@ import { nullSafe } from 'Utils/globalMethods';
 import icons from 'Database/icons';
 import PageTemplate from 'Components/PageTemplate';
 import Note from 'Components/Note';
-import * as actions from 'Store/actions/notes.js';
+
+import * as NotesActions from 'Store/actions/notes.js';
 import styles from './Home.module.scss';
 
 
@@ -28,12 +29,12 @@ const Home = (props) => {
   }
 
   function handleEdit(id) {
-    dispatch(actions.doEditNote(id))
+    dispatch(NotesActions.doEditNote(id))
     navigate({ pathname: '/note' })
   }
 
   function handleDelete(id) {
-    dispatch(actions.doDeleteNote(id))
+    dispatch(NotesActions.doDeleteNote(id))
   }
 
   return (

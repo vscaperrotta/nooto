@@ -8,19 +8,22 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Anchor from 'Components/Anchor';
+import * as ModalActions from 'Store/actions/modals.js';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleAbout() {
     navigate({ pathname: '/about' })
   }
 
   function handleSettings() {
-    alert('Settings');
+    dispatch(ModalActions.doOpenModal('MODAL_SETTING'))
   }
 
   return (
@@ -42,5 +45,7 @@ const Footer = () => {
 }
 
 Footer.propTypes = {};
+
+Footer.de = {};
 
 export default Footer;

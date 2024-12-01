@@ -23,10 +23,9 @@ const Textarea = forwardRef((props, ref) => {
       id={props.id}
       placeholder={props.placeholder}
       rows={props.rows}
-      autocomplete="off"
+      autoComplete="off"
       value={props.value}
       onChange={props.onChange}
-    // spellcheck="false"
     />
   )
 })

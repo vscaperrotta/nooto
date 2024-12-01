@@ -8,19 +8,19 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import PageTemplate from 'Components/PageTemplate';
+import ActionsBar from 'Components/ActionsBar';
 import Anchor from 'Components/Anchor';
 import styles from './About.module.scss';
 
 const About = () => {
-  const navigate = useNavigate();
 
   return (
     <PageTemplate
       isAbout
       className={styles.container}
     >
+      <ActionsBar />
       <h1 className={styles.title}>About</h1>
       <p className={styles.update}>Last updated 06 Dec, 2024</p>
       <p className={styles.release}>Release 1.0.0</p>

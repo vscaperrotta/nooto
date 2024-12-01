@@ -11,25 +11,17 @@ import PropTypes from 'prop-types';
 import { useNavigate, useLocation } from 'react-router-dom';
 import icons from 'Database/icons';
 import styles from './ActionsBar.module.scss';
-import * as actions from 'Store/actions/notes.js';
+import * as NotesActions from 'Store/actions/notes.js';
 import { useDispatch } from 'react-redux';
 
-const ActionsBar = () => {
+const ActionsBar = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
 
   function handleGoToHome() {
     navigate({ pathname: '/' })
-    dispatch(actions.doResetNote())
-  }
-
-  function handleSave() {
-    alert('handleSave');
-  }
-
-  function handleExport() {
-    alert('handleExport');
+    dispatch(NotesActions.doResetNote())
   }
 
   return (
@@ -40,32 +32,21 @@ const ActionsBar = () => {
             className={styles.action}
             onClick={() => handleGoToHome()}
           >
-            <img className={styles.icon} src={icons.home.src} alt={icons.home.alt} />
+            <img src={icons.home.src} alt={icons.home.alt} />
           </button>
         ) : null}
-        <div>
-          {location.pathname === '/note' ? (
-            <>
-              <button
-                className={styles.action}
-                onClick={() => handleSave()}
-              >
-                <img className={styles.icon} src={icons.save.src} alt={icons.save.alt} />
-              </button>
-              <button
-                className={styles.action}
-                onClick={() => handleExport()}
-              >
-                <img className={styles.icon} src={icons.download.src} alt={icons.download.alt} />
-              </button>
-            </>
-          ) : null}
-        </div>
+        {props.children !== null ? (
+          <div>
+            {props.children}
+          </div>
+        ) : null}
       </div>
     </div>
   )
 }
 
-ActionsBar.propTypes = {};
+ActionsBar.propTypes = {
+  children: PropTypes.any
+};
 
 export default ActionsBar;

@@ -19,20 +19,3 @@ $break-tablet-land: 64em;
 $break-tablet-port: 48em;
 $break-phone: 30em;
 $break-small-phone: 20em;
-
-
-// Dark theme variables
-:root[data-theme='dark'] {
-
-  // Template
-  --template-border: #fff;
-  --template-stripes: #464646;
-
-  // Anchor
-  --anchor-color: #f5f5f5;
-  --anchor-hover-color: #E91E63;
-
-  // Navigator
-  --navigator-link-color: #f5f5f5;
-  --navigator-link-hover-color: #E91E63;
-}

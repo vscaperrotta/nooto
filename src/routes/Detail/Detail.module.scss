@@ -23,4 +23,14 @@
   .text {
     width: 100%;
   }
+
+  .savedMessage {
+    background-color: greenyellow;
+    position: absolute;
+    bottom: 10rem;
+    min-height: 6rem;
+    width: 300px;
+    border-radius: 2.4rem;
+    right: 10rem;
+  }
 }

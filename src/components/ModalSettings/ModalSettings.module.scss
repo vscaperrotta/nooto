@@ -1,0 +1,109 @@
+/**
+ *
+ * Modal Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 18-Nov-2024
+*/
+
+.modalBackground {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .7);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.modalContainer {
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  max-width: 76.8rem;
+  max-height: 76.8rem;
+  width: 100%;
+}
+
+.modalHeader {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+
+  .modalTitle {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.modalBody {
+  padding: 16px;
+  flex: 1;
+
+  .section {
+    margin-bottom: 24px;
+
+    .sectionTitle {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .fontTiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .fontTile {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}
+
+.modalFooter {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  .footerButton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.cancelButton {
+      background-color: #e0e0e0;
+    }
+
+    &.saveButton {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
