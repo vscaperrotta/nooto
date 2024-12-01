@@ -45,11 +45,11 @@ const Home = (props) => {
       <div className={styles.header}>
         {props.notes.length > 0 ? (
           <>
-            <h2 className={styles.title}>Notes</h2>
+            <h1 className={styles.title}>Notes</h1>
           </>
         ) : (
           <>
-            <h2 className={styles.title} onClick={() => handleNewNote()}>Remind.Me</h2>
+            <h1 className={styles.title} onClick={() => handleNewNote()}>Remind.Me</h1>
             <p className={styles.subtitle} onClick={() => handleNewNote()}>Write your note</p>
           </>
         )}
