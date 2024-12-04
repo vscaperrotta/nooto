@@ -17,7 +17,6 @@ import styles from './Template.module.scss';
 
 
 const Template = (props) => {
-  const dispatch = useDispatch();
 
   let flowModal = null;
 

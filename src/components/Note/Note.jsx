@@ -21,9 +21,9 @@ const Note = (props) => {
         <h3 className={styles.title}>
           {props.title}
         </h3>
-        {props.description ? (
-          <p className={styles.description}>
-            {props.description}
+        {props.tag ? (
+          <p className={styles.tag}>
+            {props.tag}
           </p>
         ) : null}
         <p className={styles.date}>

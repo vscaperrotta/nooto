@@ -15,11 +15,16 @@ import { actionsType } from 'Store/actions/notes';
 const ACTION_HANDLERS = {
   // @generator reducer:type:action
   [actionsType.DO_ADD_NOTE]: produce((draft, action) => {
-    const detail = _.cloneDeep(draft.detail);
-    if (nullSafe(() => detail.id, null) === action.payload.id) {
-    } else {
+    const data = _.cloneDeep(draft.data);
+    const index = data.findIndex(obj => obj.id === action.payload.id);
+
+    draft.detail = action.payload;
+
+    if (index !== -1) {
+      draft.data[index] = action.payload;
+  } else {
       draft.data.push(action.payload);
-    }
+  }
   }),
   [actionsType.DO_EDIT_NOTE]: produce((draft, action) => {
     const data = _.cloneDeep(draft.data);

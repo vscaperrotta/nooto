@@ -1,0 +1,26 @@
+/**
+ *
+ * Textarea Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 18-Nov-2024
+*/
+
+.field {
+  border: 0;
+  box-shadow: none;
+  font-size: 3.2rem;
+  resize: none;
+  outline: 0;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  width: 100%;
+
+  &.isTitle {
+    font-weight: 700;
+  }
+
+  // &.isContent {}
+}

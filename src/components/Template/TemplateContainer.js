@@ -8,6 +8,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
+	flowModalId: nullSafe(() => state.modals.data, null),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, (stateProps, dispatchProps, ownProps) => ({

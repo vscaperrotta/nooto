@@ -71,7 +71,7 @@ const Home = (props) => {
             <Note
               id={item.id}
               title={item.title}
-              // description={item.content}
+              tag={item.tag}
               date={moment(item.date).format('GG/MM/YYYY')}
               actions={[
                 {

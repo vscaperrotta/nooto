@@ -8,9 +8,10 @@
  * @since 18-Nov-2024
 */
 
-.modalBackground {
+.wrapper {
   align-items: center;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: invert(80%);
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -20,90 +21,137 @@
   right: 0;
   width: 100vw;
   z-index: 1000;
-}
 
-.modalContainer {
-  display: flex;
-  background-color: #fff;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  max-width: 76.8rem;
-  max-height: 76.8rem;
-  width: 100%;
-}
-
-.modalHeader {
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
-
-  .modalTitle {
-    margin: 0;
-    font-size: 20px;
+  .container {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    // height: 100%;
+    position: relative;
+    max-width: 52rem;
+    min-height: 32rem;
+    width: 100%;
   }
-}
 
-.modalBody {
-  padding: 16px;
-  flex: 1;
+  .modalHeader {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+
+    .modalTitle {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  .modalBody {
+    padding: 16px;
+    flex: 1;
+  }
 
   .section {
     margin-bottom: 24px;
 
-    .sectionTitle {
-      font-size: 16px;
-      margin-bottom: 8px;
+    .title {
+      font-size: 2.4rem;
+      margin-bottom: 2.4rem;
     }
 
-    .fontTiles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .subtitle {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-bottom: 2.4rem;
+    }
+  }
 
-      .fontTile {
-        padding: 8px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        cursor: pointer;
+  .sectionTitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
 
-        &:hover {
-          background-color: #f0f0f0;
-        }
+  .fontTiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+
+  .fontTile {
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 4.8rem;
+    justify-content: center;
+    min-width: 12rem;
+    padding: .8rem;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &.selected {
+      background-color: #181818;
+      border: 1px solid #181818;
+      color: white;
+    }
+
+    .fontName {
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+    }
+  }
+
+  .themesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+
+    .theme {
+      height: 6rem;
+      width: 6rem;
+
+      &.selected {
+        background-color: #181818;
+        border: 1px solid #181818;
+        color: white;
       }
     }
   }
-}
 
-.modalFooter {
-  padding: 16px;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
+  .modalFooter {
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.4rem;
+  }
 
-  .footerButton {
-    padding: 8px 16px;
+  .button {
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    padding: .8rem 1.6rem;
 
-    &.cancelButton {
-      background-color: #e0e0e0;
+    &.cancel {
+      background-color: transparent;
     }
 
-    &.saveButton {
-      background-color: #007bff;
-      color: #fff;
+    &.save {
+      background-color: transparent;
+      border: .2rem solid #000;
     }
   }
-}
 
-.closeButton {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
+  .closeButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
 }

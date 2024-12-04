@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import ActionsBar from 'Components/ActionsBar';
 import PageTemplate from 'Components/PageTemplate';
 import Textarea from 'Components/Textarea';
+import InputField from 'Components/InputField';
 import icons from 'Database/icons';
 import { generateId, nullSafe } from 'Utils/globalMethods';
 import * as NotesActions from 'Store/actions/notes.js';
@@ -20,12 +21,15 @@ import styles from './Detail.module.scss';
 const Detail = (props) => {
   const dispatch = useDispatch();
   const refTitle = useRef();
+  const refTag = useRef();
   const refContent = useRef();
 
   const [valueTitle, setValueTitle] = useState(nullSafe(() => props.detail.title, ''));
+  const [valuetag, setValueTag] = useState(nullSafe(() => props.detail.tag, ''));
   const [valueSubtitle, setValueSubtitle] = useState(nullSafe(() => props.detail.content, ''));
 
   const TITLE = 'title';
+  const TAG = 'tag';
   const CONTENT = 'content';
 
   // useEffect(() => {
@@ -37,6 +41,10 @@ const Detail = (props) => {
     setValueTitle(event.target.value);
   };
 
+  function handleChangeTag(event) {
+    setValueTag(event.target.value);
+  };
+
   function handleChangeSubtitle(event) {
     setValueSubtitle(event.target.value);
   };
@@ -45,6 +53,7 @@ const Detail = (props) => {
     dispatch(NotesActions.doAddNote({
       id: nullSafe(() => props.detail.id, generateId()),
       title: refTitle.current.value,
+      tag: refTag.current.value,
       content: refContent.current.value,
       date: Date.now(),
     }))
@@ -78,6 +87,7 @@ const Detail = (props) => {
         className={styles.container}
       >
         <div className={styles.content}>
+
           <div className={styles.title}>
             <Textarea
               isTitle
@@ -87,6 +97,18 @@ const Detail = (props) => {
               placeholder='Title here...'
               value={valueTitle}
               onChange={handleChangeTitle}
+            />
+          </div>
+
+          <div className={styles.title}>
+            <InputField
+              isTitle
+              ref={refTag}
+              id={TAG}
+              rows={1}
+              placeholder='Add a tag'
+              value={valuetag}
+              onChange={handleChangeTag}
             />
           </div>
 
