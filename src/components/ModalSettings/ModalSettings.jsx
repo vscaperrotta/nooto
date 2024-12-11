@@ -6,19 +6,23 @@
  * @date 18-Nov-2024
 */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import * as ModalActions from 'Store/actions/modals';
 import * as SettingsActions from 'Store/actions/settings';
 import fonts from 'Database/fonts';
 import themes from 'Database/themes';
+import IconClose from 'Assets/IconClose';
+import languages from './language.jsx';
 import styles from './ModalSettings.module.scss';
 
 const ModalSettings = (props) => {
   const dispatch = useDispatch();
-  const [fontId, setFontId] = useState(null);
-  const [themeId, setThemeId] = useState(null);
+
+  // State
+  const [fontId, setFontId] = useState(props.font || null);
+  const [themeId, setThemeId] = useState(props.theme || null);
 
   function closeModal() {
     dispatch(ModalActions.doOpenModal(null))
@@ -28,25 +32,20 @@ const ModalSettings = (props) => {
     closeModal()
   }
 
-  function handleCancel() {
-    closeModal()
-  }
-
-  function handleSave() {
-    dispatch(SettingsActions.doUpdateSettings({
-      font: fontId,
-      theme: themeId,
-    }))
-    closeModal()
-  }
-
   function handleSelectFont(id) {
     setFontId(id)
+    dispatch(SettingsActions.doUpdateSettings({ font: id }))
   }
 
   function handleSelectTheme(id) {
     setThemeId(id)
+    dispatch(SettingsActions.doUpdateSettings({ theme: id }))
   }
+
+  useEffect(() => {
+    setFontId(props.font)
+    setThemeId(props.theme)
+  }, [props.font, props.theme])
 
   return (
     <div className={styles.wrapper}>
@@ -54,34 +53,46 @@ const ModalSettings = (props) => {
         className={styles.container}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className={styles.closeButton} onClick={handleClose}>
-          &times;
-        </button>
-        <div className={styles.modalHeader}>
-          <h2 className={styles.modalTitle}>
-            Settings
+        <div className={styles.header}>
+          <h2 className={styles.title}>
+            {languages.title}
           </h2>
+          <button className={styles.close} onClick={handleClose}>
+            <IconClose />
+          </button>
         </div>
-        <div className={styles.modalBody}>
+
+        <div className={styles.body}>
 
           {/* Sezione 1: Personalizzazione dei Font */}
           <div className={styles.section}>
             <h3 className={styles.title}>
-              Fonts
+              {languages.fonts}
             </h3>
-            <p className={styles.subtitle}>
-              Choose you project font from Serif, Sans Serif and Slab.
+            <p className={styles.description}>
+              {languages.fontsDescription}
             </p>
-            <div className={styles.fontTiles}>
+            <div className={styles.fontsList}>
               {fonts.map((item, index) => (
                 <button
                   key={index}
                   className={`${styles.fontTile} ${fontId === item.id ? styles.selected : ''}`}
                   onClick={() => handleSelectFont(item.id)}
                 >
-                  <span>Aa</span>
-                  <p className={styles.fontName}>
-                  {item.font}
+                  <span
+                    className={styles.example}
+                    style={{
+                      fontFamily: item.fontFamily
+                    }}
+                  >
+                    {languages.fontsExample}
+                  </span>
+                  <p
+                    className={styles.name}
+                    style={{
+                      fontFamily: item.fontFamily
+                    }}>
+                    {item.font}
                   </p>
                 </button>
               ))}
@@ -90,40 +101,32 @@ const ModalSettings = (props) => {
 
           {/* Sezione 2: Customizzazione tema */}
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>
-              Theme
+            <h3 className={styles.title}>
+              {languages.themes}
             </h3>
+            <p className={styles.description}>
+              {languages.themesDescription}
+            </p>
             {/* Switch temi css */}
-          </div>
-          <div className={styles.themesList}>
-            {themes.map((item, index) => (
-              <div>
-                <button
+            <div className={styles.themesList}>
+              {themes.map((item, index) => (
+                <div
                   key={index}
-                  className={`${styles.theme} ${themeId === item.id ? styles.selected : ''}`}
-                  onClick={() => handleSelectTheme(item.id)}
-                >
-                </button>
-                <p className={styles.fontName}>
-                {item.theme}
-                </p>
-              </div>
-            ))}
+                  className={styles.tile}>
+                  <button
+                    className={`${styles.theme} ${themeId === item.id ? styles.selected : ''}`}
+                    onClick={() => handleSelectTheme(item.id)}
+                  >
+                    <div className={`${styles.triangle} ${styles.topLeft}`} style={{ background: item.primary }} />
+                    <div className={`${styles.triangle} ${styles.bottomRight}`} style={{ background: item.secondary }} />
+                  </button>
+                  <p className={styles.name}>
+                    {item.theme}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={styles.modalFooter}>
-          <button
-            className={`${styles.button} ${styles.cancel}`}
-            onClick={handleCancel}
-          >
-            ANNULLA
-          </button>
-          <button
-            className={`${styles.button} ${styles.save}`}
-            onClick={handleSave}
-          >
-            SALVA
-          </button>
         </div>
       </div>
     </div>
@@ -132,7 +135,8 @@ const ModalSettings = (props) => {
 
 ModalSettings.propTypes = {
   isOpen: PropTypes.bool,
-  fontOptions: PropTypes.array
+  font: PropTypes.string,
+  theme: PropTypes.string,
 };
 
 export default ModalSettings;

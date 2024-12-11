@@ -1,24 +1,19 @@
-# Use the official Node.js image as the base
-FROM node:20.18.0
+FROM node:20.18.0-alpine
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy the package.json and yarn.lock files into the working directory
+RUN corepack enable
+
 COPY package.json yarn.lock ./
 
-# Install Yarn version 4.5.0
-RUN corepack enable && \
-    corepack prepare yarn@4.5.0 --activate
+RUN yarn install
 
-# Install the application's dependencies
-RUN yarn install --frozen-lockfile
-
-# Copy the rest of the application's code into the working directory
 COPY . .
 
-# Expose the port on which Vite serves the application (default: 5173)
+# RUN chown -R node:node /app
+
+# USER node
+
 EXPOSE 5173
 
-# Default command to start the Vite development server
-CMD ["yarn", "dev", "--host"]
+CMD ["yarn", "dev"]

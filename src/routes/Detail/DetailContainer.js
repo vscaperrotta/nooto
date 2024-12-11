@@ -9,7 +9,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
 	detail: nullSafe(() => state.notes.detail, null),
-	modalSaved: nullSafe(() => state.notes.save, false),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, (stateProps, dispatchProps, ownProps) => ({

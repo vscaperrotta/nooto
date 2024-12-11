@@ -32,11 +32,11 @@ const ActionsBar = (props) => {
             className={styles.action}
             onClick={() => handleGoToHome()}
           >
-            <img src={icons.home.src} alt={icons.home.alt} />
+            {icons.home.icon}
           </button>
         ) : null}
         {props.children !== null ? (
-          <div>
+          <div className={styles.childrens}>
             {props.children}
           </div>
         ) : null}

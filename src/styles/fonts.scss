@@ -1,0 +1,14 @@
+// Serif
+@mixin font-serif {
+  --font-family: 'Playfair Display', serif;
+}
+
+// Sans-serif
+@mixin font-sans-serif {
+  --font-family: 'Poppins', sans-serif;
+}
+
+// Slab
+@mixin font-slab {
+  --font-family: 'Noticia Text', serif;
+}

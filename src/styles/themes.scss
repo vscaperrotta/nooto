@@ -1,0 +1,41 @@
+// Dark
+@mixin theme-dark {
+  --primary: #333333;
+  --secondary: #f8f8f8;
+  --drag-background: rgb(a248, 248, 248, .5);
+}
+
+// Light
+@mixin theme-light {
+  --primary: #f8f8f8;
+  --secondary: #333333;
+  --drag-background: rgba(51, 51, 51, .5);
+}
+
+// Monokai
+@mixin theme-monokai {
+  --primary: #1b3474;
+  --secondary: #ec9b0d;
+  --drag-background: rgb(a236, 155, 13, .5);
+}
+
+// Neon
+@mixin theme-neon {
+  --primary: #0ceaba;
+  --secondary: #ed2eed;
+  --drag-background: rgb(a237, 46, 237, .5);
+}
+
+// Flora
+@mixin theme-flora {
+  --primary: #f1e956;
+  --secondary: #259581;
+  --drag-background: rgba(37, 149, 129, .5);
+}
+
+// Paper
+@mixin theme-night {
+  --primary: #282a37;
+  --secondary: #f4f6f7;
+  --drag-background: rgba(58, 90, 110, .5);
+}

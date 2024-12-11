@@ -15,14 +15,18 @@ import { actionsType } from 'Store/actions/settings';
 const ACTION_HANDLERS = {
   // @generator reducer:type:action
   [actionsType.DO_UPDATE_SETTINGS]: produce((draft, action) => {
-    draft.font = action.payload.font;
-    draft.theme = action.payload.theme;
+    if (action.payload.font) {
+      draft.font = action.payload.font;
+    }
+    if (action.payload.theme) {
+      draft.theme = action.payload.theme;
+    }
   }),
 };
 
 // The initial state of the food reducer
 const initialState = {
-  font: 'SLAB',
+  font: 'SANS_SERIF',
   theme: 'LIGHT',
 };
 

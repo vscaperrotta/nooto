@@ -38,7 +38,7 @@ const Note = (props) => {
               className={styles.action}
               onClick={action.onClick}
             >
-              {action.src ? <img className={styles.icon} src={action.src} alt={action.alt} /> : null}
+              {action.icon ? action.icon : null}
               {action.label ? <span className={styles.label}>{props.label}</span> : null}
             </button>
           ))}

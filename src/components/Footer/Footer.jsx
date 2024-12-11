@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Anchor from 'Components/Anchor';
 import * as ModalActions from 'Store/actions/modals.js';
+import languages from './language.jsx';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -29,23 +30,21 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <Anchor
-        label='About'
+        label={languages.about}
         onClick={() => handleAbout()}
       />
       <Anchor
-        label='Settings'
+        label={languages.settings}
         onClick={() => handleSettings()}
       />
       <Anchor
-        label='Code'
-        href='https://github.com/vscaperrotta/remind.me'
+        label={languages.code}
+        href='https://github.com/vscaperrotta/nooto'
       />
     </div>
   )
 }
 
 Footer.propTypes = {};
-
-Footer.de = {};
 
 export default Footer;

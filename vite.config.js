@@ -19,6 +19,7 @@ export default defineConfig({
       Routes: `${APP_DIR}/routes`,
       Store: `${APP_DIR}/store`,
       Style: `${APP_DIR}/styles`,
+      Translations: `${APP_DIR}/translations`,
       Utils: `${APP_DIR}/utils`,
     },
   },

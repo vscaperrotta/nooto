@@ -64,6 +64,70 @@ export function createAction(type, payload = {}) {
 	};
 }
 
+/**
+ * Generates a unique identifier in the format "XXXX-XXXX", where X represents a random number.
+ *
+ * @function generateId
+ * @returns {string} - A unique identifier in the format "XXXX-XXXX".
+ *
+ * @example
+ * const uniqueId = generateId();
+ * console.log(uniqueId); // Output: "1234-5678"
+ */
 export function generateId() {
 	return `${Math.floor(Math.random() * 10000)}-${Math.floor(Math.random() * 10000)}`;
+}
+
+/**
+ * Exports an object to a Markdown file.
+ *
+ * @function exportToMarkdownFile
+ * @param {object} obj - The object to be exported.
+ * @param {string} obj.title - The title of the Markdown file.
+ * @param {string} [obj.date] - The date of the Markdown file. Default is the current date.
+ * @param {string} [obj.tag] - The tag of the Markdown file. Default is "Nessun tag".
+ * @param {string} [obj.content] - The content of the Markdown file. Default is "Nessun contenuto disponibile."
+ * @returns {void}
+ *
+ * @example
+ * const data = {
+ *   title: "My Markdown File",
+ *   date: "2022-01-01",
+ *   tag: "JavaScript",
+ *   content: "This is my markdown content."
+ * };
+ * exportToMarkdownFile(data);
+ */
+export function exportToMarkdownFile(obj) {
+
+	const {
+		title = "untitled",
+		date = Date.now(),
+		tag = "",
+		content = "Nessun contenuto disponibile."
+	} = obj;
+
+	if (!obj) {
+		console.error("Ops! There isn't any note.");
+		return;
+	}
+
+	const formattedDate = new Date(date).toLocaleString();
+	const tagSection = tag ? `## ${tag}\n\n` : "";
+
+	const markdownContent =
+		`# ${title}
+
+**Date:** ${formattedDate}
+
+${tagSection}---
+${content}`;
+
+	const blob = new Blob([markdownContent], { type: "text/markdown" });
+	const link = document.createElement("a");
+	link.href = URL.createObjectURL(blob);
+	link.download = `${title}.md`;
+	link.click();
+
+	URL.revokeObjectURL(link.href);
 }

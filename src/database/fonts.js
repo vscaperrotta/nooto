@@ -1,14 +1,17 @@
 export default [
   {
     id: 'SERIF',
-    font: 'nome'
+    font: 'Playfair Display',
+    fontFamily: 'Playfair Display, serif',
   },
   {
     id: 'SANS_SERIF',
-    font: 'nome'
+    font: 'Poppins',
+    fontFamily: 'Poppins, sans-serif',
   },
   {
     id: 'SLAB',
-    font: 'nome'
+    font: 'Noticia Text',
+    fontFamily: 'Noticia Text, serif',
   },
 ]

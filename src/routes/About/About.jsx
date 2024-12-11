@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import PageTemplate from 'Components/PageTemplate';
 import ActionsBar from 'Components/ActionsBar';
 import Anchor from 'Components/Anchor';
+import languages from './language.jsx';
 import styles from './About.module.scss';
 
 const About = () => {
@@ -21,18 +22,20 @@ const About = () => {
       className={styles.container}
     >
       <ActionsBar />
-      <h1 className={styles.title}>About</h1>
-      <p className={styles.update}>Last updated 06 Dec, 2024</p>
-      <p className={styles.release}>Release 1.0.0</p>
+      <h1 className={styles.title}>{languages.title}</h1>
+      <p className={styles.update}>{languages.lastUpdated}</p>
+      <p className={styles.release}>{languages.release}</p>
       <div className={styles.content}>
         <p className={styles.paragraph}>
-          This project is an exercise in style. It is inspired by the project <Anchor label='Scrivi.la' href='https://scrivi.la/' /> by Ricardo Palombo, whose content and project I admire.
+          {languages.content1}
+          <Anchor label={languages.scrivilaLabel} href={languages.scrivilaHref} />
         </p>
         <p className={styles.paragraph}>
-          In creating my own portfolio, I found the idea of trying to replicate, with different technologies more akin to my background, the project he proposed niteresting.
+          {languages.content2}
         </p>
         <p className={styles.paragraph}>
-          In this exercise, I am also going to integrate some features such as adding a tag and the possibility of changing fonts.
+          {languages.content3}
+          <Anchor label={languages.iconsLabel} href={languages.iconHref} />
         </p>
       </div>
     </PageTemplate>

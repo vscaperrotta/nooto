@@ -9,7 +9,7 @@
 
 import produce from 'immer';
 import _ from 'lodash';
-import { nullSafe } from 'Utils/globalMethods';
+import { exportToMarkdownFile } from 'Utils/globalMethods';
 import { actionsType } from 'Store/actions/notes';
 
 const ACTION_HANDLERS = {
@@ -22,13 +22,19 @@ const ACTION_HANDLERS = {
 
     if (index !== -1) {
       draft.data[index] = action.payload;
-  } else {
+    } else {
       draft.data.push(action.payload);
-  }
+    }
   }),
   [actionsType.DO_EDIT_NOTE]: produce((draft, action) => {
     const data = _.cloneDeep(draft.data);
     draft.detail = data.filter(item => item.id === action.payload)[0];
+  }),
+  [actionsType.DO_EXPORT_NOTE]: produce((draft, action) => {
+    const data = _.cloneDeep(draft.data);
+    const note = data.find(item => item.id === action.payload.id)
+
+    exportToMarkdownFile(note)
   }),
   [actionsType.DO_DELETE_NOTE]: produce((draft, action) => {
     const data = _.cloneDeep(draft.data);
@@ -36,9 +42,6 @@ const ACTION_HANDLERS = {
   }),
   [actionsType.DO_RESET_DETAIL]: produce((draft, action) => {
     draft.detail = null;
-  }),
-  [actionsType.DO_CONFIRM_SAVE]: produce((draft, action) => {
-    draft.save = action.payload;
   }),
 };
 
@@ -49,6 +52,7 @@ const initialState = {
   loading: false,
   error: null,
   save: false,
+  export: false,
 };
 
 const Notes = (state = initialState, action) => {

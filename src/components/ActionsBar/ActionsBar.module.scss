@@ -29,23 +29,27 @@
     width: 100%;
   }
 
+  .childrens {
+    align-items: center;
+    display: flex;
+    gap: 1.6rem;
+  }
+
   button {
     background: transparent;
     border: 0;
-    height: 4rem;
+    display: flex;
     opacity: .5;
     padding: 1rem;
     transition: all .3s ease-in-out;
-    width: 4rem;
 
     &:hover {
       cursor: pointer;
       opacity: 1;
     }
 
-    img {
-      height: 2rem;
-      width: 2rem;
+    svg {
+      stroke: var(--secondary);
     }
   }
 }

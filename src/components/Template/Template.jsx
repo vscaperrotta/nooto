@@ -24,6 +24,16 @@ const Template = (props) => {
     flowModal = flowModalMap[props.flowModalId]
   }
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-font", props.font);
+  }, [props.font])
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-theme", props.theme);
+  }, [props.theme])
+
   return (
     <main className={styles.main}>
       {flowModal}
@@ -39,6 +49,8 @@ Template.propTypes = {
   children: PropTypes.node,
   flowModalId: PropTypes.string,
   modalSaved: PropTypes.bool,
+  font: PropTypes.string,
+  theme: PropTypes.string,
 };
 
 export default Template;

@@ -24,13 +24,32 @@
     width: 100%;
   }
 
-  .savedMessage {
-    background-color: greenyellow;
+  .alert {
+    align-items: center;
+    bottom: 5rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+    justify-content: center;
+    left: 50%;
+    max-width: 16rem;
+    opacity: 0;
+    padding: 1.2rem;
     position: absolute;
-    bottom: 10rem;
-    min-height: 6rem;
-    width: 300px;
-    border-radius: 2.4rem;
-    right: 10rem;
+    text-align: center;
+    transform: translateX(-50%);
+    transition: all .3s ease-in-out;
+    width: 100%;
+
+    &.export {
+      max-width: 20rem;
+    }
+
+    &.isActive {
+      bottom: 10rem;
+      opacity: 1;
+    }
   }
 }

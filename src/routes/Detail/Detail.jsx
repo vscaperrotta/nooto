@@ -6,7 +6,7 @@
  * @date 17-Nov-2024
 */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import ActionsBar from 'Components/ActionsBar';
@@ -16,6 +16,7 @@ import InputField from 'Components/InputField';
 import icons from 'Database/icons';
 import { generateId, nullSafe } from 'Utils/globalMethods';
 import * as NotesActions from 'Store/actions/notes.js';
+import languages from './language.jsx';
 import styles from './Detail.module.scss';
 
 const Detail = (props) => {
@@ -27,15 +28,12 @@ const Detail = (props) => {
   const [valueTitle, setValueTitle] = useState(nullSafe(() => props.detail.title, ''));
   const [valuetag, setValueTag] = useState(nullSafe(() => props.detail.tag, ''));
   const [valueSubtitle, setValueSubtitle] = useState(nullSafe(() => props.detail.content, ''));
+  const [isSave, setIsSave] = useState(false);
+  const [isExport, setIsExport] = useState(false);
 
-  const TITLE = 'title';
-  const TAG = 'tag';
-  const CONTENT = 'content';
-
-  // useEffect(() => {
-  //   console.log(refTitle.current.value);
-  //   console.log(refContent.current.value);
-  // }, [refTitle, refContent])
+  const TITLE = 'TITLE_ID';
+  const TAG = 'TAG_ID';
+  const CONTENT = 'CONTENT_ID';
 
   function handleChangeTitle(event) {
     setValueTitle(event.target.value);
@@ -52,33 +50,45 @@ const Detail = (props) => {
   function handleSave() {
     dispatch(NotesActions.doAddNote({
       id: nullSafe(() => props.detail.id, generateId()),
-      title: refTitle.current.value,
+      title: refTitle.current.value === '' ? 'Untitle' : refTitle.current.value,
       tag: refTag.current.value,
       content: refContent.current.value,
       date: Date.now(),
     }))
 
+    setIsSave(true);
+
     setTimeout(() => {
-      dispatch(NotesActions.doConfirmSave(false))
+      setIsSave(false);
     }, 3000);
   }
 
-  function handleExport() {
-    alert('handleExport');
+  function handleExport(id) {
+    dispatch(NotesActions.doExportNote({
+      id: id
+    }))
+
+    setIsExport(true);
+
+    setTimeout(() => {
+      setIsExport(false);
+    }, 3000);
   }
 
   return (
     <>
+      {console.log(languages)}
+      {console.log(languages.contentPlaceholder)}
       <ActionsBar>
         <button
           onClick={() => handleSave()}
         >
-          <img src={icons.save.src} alt={icons.save.alt} />
+          {icons.save.icon}
         </button>
         <button
-          onClick={() => handleExport()}
+          onClick={() => handleExport(props.detail.id)}
         >
-          <img src={icons.download.src} alt={icons.download.alt} />
+          {icons.download.icon}
         </button>
       </ActionsBar>
 
@@ -88,55 +98,56 @@ const Detail = (props) => {
       >
         <div className={styles.content}>
 
+          {/* Title */}
           <div className={styles.title}>
-            <Textarea
+            <InputField
               isTitle
               ref={refTitle}
               id={TITLE}
-              rows={1}
-              placeholder='Title here...'
+              placeholder={languages.titlePlaceholder}
               value={valueTitle}
               onChange={handleChangeTitle}
             />
           </div>
 
+          {/* Tag */}
           <div className={styles.title}>
             <InputField
-              isTitle
+              isTag
               ref={refTag}
               id={TAG}
-              rows={1}
-              placeholder='Add a tag'
+              placeholder={languages.tagPlaceholder}
               value={valuetag}
               onChange={handleChangeTag}
             />
           </div>
 
+          {/* Detail */}
           <div className={styles.text}>
             <Textarea
               isContent
               ref={refContent}
               id={CONTENT}
               rows={10}
-              placeholder='Content here...'
+              placeholder={languages.contentPlaceholder}
               value={valueSubtitle}
               onChange={handleChangeSubtitle}
             />
           </div>
         </div>
-        {props.modalSaved ? (
-          <h1 className={styles.savedMessage}>
-            Saved!
-          </h1>
-        ) : null}
+        <p className={`${styles.alert} ${styles.save} ${isSave ? styles.isActive : ''}`}>
+          {languages.save}
+        </p>
+        <p className={`${styles.alert} ${styles.export} ${isExport ? styles.isActive : ''}`}>
+          {languages.export}
+        </p>
       </PageTemplate>
     </>
   )
 }
 
 Detail.propTypes = {
-  detail: PropTypes.object,
-  modalSaved: PropTypes.bool,
+  detail: PropTypes.object
 };
 
 export default Detail;

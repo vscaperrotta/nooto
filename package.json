@@ -1,8 +1,8 @@
 {
-  "name": "remind-me",
+  "name": "nooto",
   "private": true,
   "version": "1.0.0",
-  "description": "Remind.Me is a text editor based on Redux Persist to memorized your notes.",
+  "description": "Nōto - ノート is a text editor based on Redux Persist to memorized your notes.",
   "main": "index.jsx",
   "author": "Vittorio Scaperrotta",
   "type": "module",
@@ -17,7 +17,6 @@
   },
   "scripts": {
     "build": "vite build",
-    "commit": "node scripts/commit",
     "dev": "vite",
     "generate": "plop --plopfile generators/index.js",
     "git-cz": "git-cz",
@@ -50,6 +49,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^7.0.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "redux-persist": "^6.0.0",

@@ -6,17 +6,19 @@
  * @date 16-Nov-2024
 */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-import { nullSafe } from 'Utils/globalMethods';
+
+import * as NotesActions from 'Store/actions/notes.js';
+
 import icons from 'Database/icons';
 import PageTemplate from 'Components/PageTemplate';
 import Note from 'Components/Note';
 
-import * as NotesActions from 'Store/actions/notes.js';
+import languages from './language.jsx';
 import styles from './Home.module.scss';
 
 
@@ -24,7 +26,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleNewNote(id) {
+  function handleNewNote() {
     navigate({ pathname: '/note' })
   }
 
@@ -41,7 +43,10 @@ const Home = (props) => {
     <PageTemplate className={`
       ${styles.container}
       ${props.notes.length === 0 ? styles.noNotes : ''}
-    `}>
+      `}>
+      <h1 className={styles.kanji}>
+        {languages.kanji}
+      </h1>
       <div className={styles.header}>
         {props.notes.length > 0 ? (
           <>
@@ -49,8 +54,12 @@ const Home = (props) => {
           </>
         ) : (
           <>
-            <h1 className={styles.title} onClick={() => handleNewNote()}>Remind.Me</h1>
-            <p className={styles.subtitle} onClick={() => handleNewNote()}>Write your note</p>
+            <h1 className={styles.title} onClick={() => handleNewNote()}>
+              {languages.title}
+            </h1>
+            <p className={styles.subtitle} onClick={() => handleNewNote()}>
+              {languages.subtitle}
+            </p>
           </>
         )}
       </div>
@@ -60,7 +69,7 @@ const Home = (props) => {
         {props.notes.length > 0 ? (
           <div className={styles.newNote}>
             <Note
-              title='New note...'
+              title={languages.newNote}
               onClick={() => handleNewNote()}
             />
           </div>
@@ -71,16 +80,15 @@ const Home = (props) => {
             <Note
               id={item.id}
               title={item.title}
-              tag={item.tag}
               date={moment(item.date).format('GG/MM/YYYY')}
               actions={[
                 {
-                  src: icons.edit.src,
+                  icon: icons.edit.icon,
                   alt: icons.edit.alt,
                   onClick: () => handleEdit(item.id),
                 },
                 {
-                  src: icons.trash.src,
+                  icon: icons.trash.icon,
                   alt: icons.trash.alt,
                   onClick: () => handleDelete(item.id),
                 },

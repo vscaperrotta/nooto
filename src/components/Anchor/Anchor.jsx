@@ -29,7 +29,7 @@ Anchor.propTypes = {
   id: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   target: PropTypes.string,
 };
 
