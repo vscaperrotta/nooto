@@ -51,7 +51,7 @@ Follow these steps to set up the project locally:
 
 ### Prerequisites
 
-- **Node.js** (>= 16.x recommended)
+- **Node.js** >= 20.18.0
 - **Yarn** (preferred package manager)
 - A modern web browser
 
@@ -95,15 +95,6 @@ Follow these steps to set up the project locally:
 ## Configuration
 
 - **Vite Configuration:** Located in `vite.config.js`, this file manages the build and development server settings.
-- **Environment Variables:**
-
-  - Environment variables are loaded from `public/env_config.js` and are accessible in the application.
-
----
-
-## Contributing
-
-Feel free to open issues or submit pull requests. Contributions are welcome!
 
 ---
 
