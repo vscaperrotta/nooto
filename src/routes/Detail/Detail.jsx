@@ -6,7 +6,7 @@
  * @date 17-Nov-2024
 */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import ActionsBar from 'Components/ActionsBar';
@@ -32,6 +32,7 @@ const Detail = (props) => {
   const [valueContent, setValueContent] = useState(nullSafe(() => props.detail.content, ''));
   const [isSave, setIsSave] = useState(false);
   const [isExport, setIsExport] = useState(false);
+  const [isSaveBefore, setIsSaveBefore] = useState(false);
 
   const TITLE = 'TITLE_ID';
   const SUBTITLE = 'SUBTITLE_ID';
@@ -65,19 +66,32 @@ const Detail = (props) => {
     }, 3000);
   }
 
-  function handleExport(id) {
-    dispatch(NotesActions.doExportNote({
-      id: id
-    }))
+  function handleExport() {
+    if (props.detail !== null) {
+      dispatch(NotesActions.doExportNote({
+        id: props.detail.id
+      }))
 
-    setIsExport(true);
+      setIsExport(true);
 
-    setTimeout(() => {
-      setIsExport(false);
-    }, 3000);
+      setTimeout(() => {
+        setIsExport(false);
+      }, 3000);
+    } else {
+      setIsSaveBefore(true);
+
+      setTimeout(() => {
+        setIsSaveBefore(false);
+      }, 3000);
+    }
   }
 
-  console.log(languages)
+  useEffect(() => {
+    // Reset state
+    setIsSave(false);
+    setIsExport(false);
+    setIsSaveBefore(false);
+  }, []);
 
   return (
     <>
@@ -88,7 +102,7 @@ const Detail = (props) => {
           {icons.save.icon}
         </button>
         <button
-          onClick={() => handleExport(props.detail.id)}
+          onClick={() => handleExport()}
         >
           {icons.download.icon}
         </button>
@@ -135,6 +149,9 @@ const Detail = (props) => {
             />
           </div>
         </div>
+        <p className={`${styles.alert} ${styles.saveBefore} ${isSaveBefore ? styles.isActive : ''}`}>
+          {languages.saveBefore}
+        </p>
         <p className={`${styles.alert} ${styles.save} ${isSave ? styles.isActive : ''}`}>
           {languages.save}
         </p>

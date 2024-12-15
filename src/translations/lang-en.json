@@ -6,6 +6,7 @@
   "t.detail.title.placeholder": "Start with a title",
   "t.detail.subtitle.placeholder": "Maybe you want a subtitle",
   "t.detail.content.placeholder": "Write your note and save your thoughts",
+  "t.detail.saveBefore": "Save to download",
   "t.detail.save": "Note saved",
   "t.detail.export": "Note exported",
   "t.about.title": "About",
