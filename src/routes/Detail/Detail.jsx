@@ -18,40 +18,42 @@ import { generateId, nullSafe } from 'Utils/globalMethods';
 import * as NotesActions from 'Store/actions/notes.js';
 import languages from './language.jsx';
 import styles from './Detail.module.scss';
+import { useIntl } from 'react-intl';
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const refTitle = useRef();
-  const refTag = useRef();
+  const refSubtitle = useRef();
   const refContent = useRef();
+  const intl = useIntl()
 
   const [valueTitle, setValueTitle] = useState(nullSafe(() => props.detail.title, ''));
-  const [valuetag, setValueTag] = useState(nullSafe(() => props.detail.tag, ''));
-  const [valueSubtitle, setValueSubtitle] = useState(nullSafe(() => props.detail.content, ''));
+  const [valueSubtitle, setValueSubtitle] = useState(nullSafe(() => props.detail.tag, ''));
+  const [valueContent, setValueContent] = useState(nullSafe(() => props.detail.content, ''));
   const [isSave, setIsSave] = useState(false);
   const [isExport, setIsExport] = useState(false);
 
   const TITLE = 'TITLE_ID';
-  const TAG = 'TAG_ID';
+  const SUBTITLE = 'SUBTITLE_ID';
   const CONTENT = 'CONTENT_ID';
 
   function handleChangeTitle(event) {
     setValueTitle(event.target.value);
   };
 
-  function handleChangeTag(event) {
-    setValueTag(event.target.value);
-  };
-
   function handleChangeSubtitle(event) {
     setValueSubtitle(event.target.value);
+  };
+
+  function handleChangeContent(event) {
+    setValueContent(event.target.value);
   };
 
   function handleSave() {
     dispatch(NotesActions.doAddNote({
       id: nullSafe(() => props.detail.id, generateId()),
       title: refTitle.current.value === '' ? 'Untitle' : refTitle.current.value,
-      tag: refTag.current.value,
+      tag: refSubtitle.current.value,
       content: refContent.current.value,
       date: Date.now(),
     }))
@@ -75,10 +77,10 @@ const Detail = (props) => {
     }, 3000);
   }
 
+  console.log(languages)
+
   return (
     <>
-      {console.log(languages)}
-      {console.log(languages.contentPlaceholder)}
       <ActionsBar>
         <button
           onClick={() => handleSave()}
@@ -104,7 +106,7 @@ const Detail = (props) => {
               isTitle
               ref={refTitle}
               id={TITLE}
-              placeholder={languages.titlePlaceholder}
+              placeholder={intl.formatMessage(languages.titlePlaceholder)}
               value={valueTitle}
               onChange={handleChangeTitle}
             />
@@ -113,25 +115,23 @@ const Detail = (props) => {
           {/* Tag */}
           <div className={styles.title}>
             <InputField
-              isTag
-              ref={refTag}
-              id={TAG}
-              placeholder={languages.tagPlaceholder}
-              value={valuetag}
-              onChange={handleChangeTag}
+              isSubtitle
+              ref={refSubtitle}
+              id={SUBTITLE}
+              placeholder={intl.formatMessage(languages.subtitlePlaceholder)}
+              value={valueSubtitle}
+              onChange={handleChangeSubtitle}
             />
           </div>
 
           {/* Detail */}
           <div className={styles.text}>
             <Textarea
-              isContent
               ref={refContent}
               id={CONTENT}
-              rows={10}
-              placeholder={languages.contentPlaceholder}
-              value={valueSubtitle}
-              onChange={handleChangeSubtitle}
+              placeholder={intl.formatMessage(languages.contentPlaceholder)}
+              value={valueContent}
+              onChange={handleChangeContent}
             />
           </div>
         </div>

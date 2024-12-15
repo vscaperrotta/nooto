@@ -14,9 +14,6 @@ export const valuesForMessage = {
 
 const PortalMessage = ({ values, ...props }) => {
 
-  console.log(values)
-  console.log(props)
-
   return (
     <FormattedMessage
       {...props}

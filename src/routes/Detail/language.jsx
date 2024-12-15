@@ -2,15 +2,15 @@
 import PortalMessage from 'Utils/PortalMessage';
 
 const messages = {
-  titlePlaceholder: <PortalMessage
-    id='t.detail.title.placeholder'
-  />,
-  tagPlaceholder: <PortalMessage
-    id='t.detail.tag.placeholder'
-  />,
-  contentPlaceholder: <PortalMessage
-    id='t.detail.content.placeholder'
-  />,
+  titlePlaceholder: {
+    id: 't.detail.title.placeholder'
+  },
+  subtitlePlaceholder: {
+    id: 't.detail.subtitle.placeholder'
+  },
+  contentPlaceholder: {
+    id: 't.detail.content.placeholder'
+  },
   save: <PortalMessage
     id='t.detail.save'
   />,

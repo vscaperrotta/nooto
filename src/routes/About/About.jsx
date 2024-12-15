@@ -27,15 +27,23 @@ const About = () => {
       <p className={styles.release}>{languages.release}</p>
       <div className={styles.content}>
         <p className={styles.paragraph}>
-          {languages.content1}
-          <Anchor label={languages.scrivilaLabel} href={languages.scrivilaHref} />
+          {languages.content1(
+            <Anchor
+              label={languages.scrivilaLabel}
+              href='https://scrivi.la/'
+            />
+          )}
         </p>
         <p className={styles.paragraph}>
           {languages.content2}
         </p>
         <p className={styles.paragraph}>
-          {languages.content3}
-          <Anchor label={languages.iconsLabel} href={languages.iconHref} />
+          {languages.content3(
+            <Anchor
+              label={languages.iconsLabel}
+              href='https://feathericons.com/'
+            />
+          )}
         </p>
       </div>
     </PageTemplate>

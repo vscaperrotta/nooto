@@ -27,7 +27,7 @@ const ACTION_HANDLERS = {
 // The initial state of the food reducer
 const initialState = {
   font: 'SANS_SERIF',
-  theme: 'LIGHT',
+  theme: 'DARK',
 };
 
 const Settings = (state = initialState, action) => {

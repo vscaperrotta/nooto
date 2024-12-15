@@ -5,15 +5,16 @@ const messages = {
   title: <PortalMessage
     id='t.about.title'
   />,
-  content1: <PortalMessage
+  content1: (param) => <PortalMessage
     id='t.about.content.1'
-    a={{ target: '_blank' }}
+    values={{ param: param }}
   />,
   content2: <PortalMessage
     id='t.about.content.2'
   />,
-  content3: <PortalMessage
+  content3: (param) => <PortalMessage
     id='t.about.content.3'
+    values={{ param: param }}
   />,
   scrivilaLabel: <PortalMessage
     id='t.about.scrivila.label'

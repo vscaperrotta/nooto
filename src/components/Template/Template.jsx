@@ -6,13 +6,10 @@
  * @date 17-Nov-2024
 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import flowModalMap from 'Utils/flowModalMap';
+import modals from 'Utils/modalsMapping';
 import Footer from 'Components/Footer';
-import ActionsBar from 'Components/ActionsBar';
-import * as ModalActions from 'Store/actions/modals.js';
 import styles from './Template.module.scss';
 
 
@@ -21,7 +18,7 @@ const Template = (props) => {
   let flowModal = null;
 
   if (props.flowModalId !== null) {
-    flowModal = flowModalMap[props.flowModalId]
+    flowModal = modals[props.flowModalId]
   }
 
   useEffect(() => {
@@ -37,9 +34,7 @@ const Template = (props) => {
   return (
     <main className={styles.main}>
       {flowModal}
-      <div className={styles.content}>
-        {props.children}
-      </div>
+      {props.children}
       <Footer />
     </main>
   )

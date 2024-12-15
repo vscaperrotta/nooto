@@ -30,16 +30,16 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <Anchor
-        label={languages.about}
+        label={languages.aboutLabel}
         onClick={() => handleAbout()}
       />
       <Anchor
-        label={languages.settings}
+        label={languages.settingsLabel}
         onClick={() => handleSettings()}
       />
       <Anchor
-        label={languages.code}
-        href='https://github.com/vscaperrotta/nooto'
+        label={languages.codeLabel}
+        href={'https://github.com/vscaperrotta/nooto'}
       />
     </div>
   )

@@ -18,7 +18,7 @@ const InputField = forwardRef((props, ref) => {
       className={`
         ${styles.field}
         ${props.isTitle ? styles.isTitle : ''}
-        ${props.isTag ? styles.isTag : ''}
+        ${props.isSubtitle ? styles.isSubtitle : ''}
       `}
       name={props.id}
       id={props.id}

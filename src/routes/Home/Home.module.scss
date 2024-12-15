@@ -27,6 +27,7 @@
   .list {
     max-width: 102.4rem;
     width: 100%;
+    z-index: 3;
 
     .item {
       margin-bottom: 4rem;
@@ -49,9 +50,9 @@
   }
 
   .kanji {
-    font-size: 24rem;
+    font-size: 18rem;
     left: 0;
-    line-height: 26rem;
+    line-height: 20rem;
     position: absolute;
     opacity: .1;
     left: 50%;

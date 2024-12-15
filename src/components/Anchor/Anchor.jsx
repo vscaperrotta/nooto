@@ -26,11 +26,11 @@ const Anchor = (props) => {
 }
 
 Anchor.propTypes = {
-  id: PropTypes.string,
-  href: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onClick: PropTypes.func,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  target: PropTypes.string,
+  target: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 export default Anchor;

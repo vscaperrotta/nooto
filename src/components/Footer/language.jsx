@@ -2,14 +2,17 @@
 import PortalMessage from 'Utils/PortalMessage';
 
 const messages = {
-  about: <PortalMessage
-    id='t.footer.about'
+  aboutLabel: <PortalMessage
+    id='t.footer.about.label'
   />,
-  settings: <PortalMessage
-    id='t.footer.settings'
+  settingsLabel: <PortalMessage
+    id='t.footer.settings.label'
   />,
-  code: <PortalMessage
-    id='t.footer.code'
+  codeLabel: <PortalMessage
+    id='t.footer.code.label'
+  />,
+  codeHref: <PortalMessage
+    id='t.footer.code.href'
   />,
 };
 

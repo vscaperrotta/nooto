@@ -5,8 +5,8 @@ const flowModalTypes = {
   MODAL_SETTING: 'MODAL_SETTING'
 }
 
-const flowModalMap = {
+const modals = {
   [flowModalTypes.MODAL_SETTING]: <ModalSettings />,
 }
 
-export default flowModalMap
+export default modals

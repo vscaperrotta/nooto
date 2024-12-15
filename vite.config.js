@@ -16,6 +16,7 @@ export default defineConfig({
       Components: `${APP_DIR}/components`,
       Containers: `${APP_DIR}/containers`,
       Database: `${APP_DIR}/database`,
+      Hooks: `${APP_DIR}/hooks`,
       Routes: `${APP_DIR}/routes`,
       Store: `${APP_DIR}/store`,
       Style: `${APP_DIR}/styles`,
