@@ -51,10 +51,5 @@ export default defineConfig({
   build: {
     minify: "terser",
     assetsDir: 'assets',
-    rollupOptions: {
-      output: {
-        assetFileNames: 'fonts/Ubuntu/[name].[hash][extname]',
-      },
-    },
   },
 });

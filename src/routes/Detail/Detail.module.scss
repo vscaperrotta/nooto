@@ -37,7 +37,7 @@
     max-width: 16rem;
     opacity: 0;
     padding: 1.2rem;
-    position: absolute;
+    position: fixed;
     text-align: center;
     transform: translateX(-50%);
     transition: all .3s ease-in-out;
@@ -45,6 +45,10 @@
 
     &.export {
       max-width: 20rem;
+    }
+
+    &.saveBefore {
+      max-width: 22rem;
     }
 
     &.isActive {

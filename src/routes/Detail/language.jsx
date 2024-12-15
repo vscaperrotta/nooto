@@ -11,6 +11,9 @@ const messages = {
   contentPlaceholder: {
     id: 't.detail.content.placeholder'
   },
+  saveBefore: <PortalMessage
+    id='t.detail.saveBefore'
+  />,
   save: <PortalMessage
     id='t.detail.save'
   />,
