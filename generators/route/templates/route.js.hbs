@@ -1,0 +1,12 @@
+{
+  component: () => (
+    <Route
+      path="/{{lowerCase routeName}}"
+      key="{{properCase routeName}}"
+      element={
+        <{{properCase routeName}} />
+      }
+    />
+  ),
+},
+$&

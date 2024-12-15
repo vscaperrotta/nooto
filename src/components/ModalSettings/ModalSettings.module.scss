@@ -1,0 +1,179 @@
+/**
+ *
+ * Modal Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 18-Nov-2024
+*/
+
+.wrapper {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .7);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  width: 100vw;
+  z-index: 1000;
+
+  .container {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    position: relative;
+    max-width: 52rem;
+    min-height: 32rem;
+    width: 100%;
+
+    @include respond(tab-port) {
+      max-width: 100%;
+    }
+  }
+
+  .header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 3.2rem;
+
+    .title {
+      color: #181818;
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  .body {
+    padding: 0 3.2rem 3.2rem 3.2rem;
+    flex: 1;
+  }
+
+  .section {
+    margin-bottom: 3.2rem;
+
+    .title {
+      color: #181818;
+      font-size: 2.4rem;
+      line-height: 2.6rem;
+      margin-bottom: .8rem;
+    }
+
+    .description {
+      color: #181818;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  .fontsList {
+    color: #181818;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+  }
+
+  .fontTile {
+    align-items: center;
+    border: .2rem solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 12rem;
+    opacity: .6;
+    padding: .8rem;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: #f0f0f0;
+      opacity: 1;
+    }
+
+    &.selected {
+      opacity: 1;
+    }
+
+    .example {
+      font-size: 4.8rem;
+    }
+
+    .name {
+      color: #181818;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 1.8rem;
+      text-align: center;
+    }
+  }
+
+  .themesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+
+    .tile {
+      align-items: center;
+      display: flex;
+      gap: 1.6rem;
+
+      @include respond(tab-port) {
+        flex-direction: column;
+      }
+    }
+
+    .theme {
+      border: 0;
+      height: 6rem;
+      opacity: .6;
+      position: relative;
+      transition: all .3s ease-in-out;
+      width: 6rem;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+
+      &.selected {
+        opacity: 1;
+      }
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+
+    .name {
+      color: #181818;
+      font-size: 1.6rem;
+    }
+
+    .triangle {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      width: 100%;
+
+      &.topLeft {
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+      }
+
+      &.bottomRight {
+        clip-path: polygon(100% 100%, 100% 0, 0 100%);
+      }
+    }
+  }
+
+  .close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

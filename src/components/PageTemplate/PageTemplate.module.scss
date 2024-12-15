@@ -1,0 +1,38 @@
+/**
+ *
+ * PageTemplate Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 17-Nov-2024
+*/
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 6rem);
+  padding: 24rem 6rem 6rem;
+  width: 100%;
+
+  @include respond(tab-land) {
+    padding: 7.2rem 2.4rem;
+  }
+
+  &.isDetail {
+    padding: 12rem 6rem 6rem;
+
+    @include respond(tab-land) {
+      padding: 10rem 2.4rem 4rem;
+    }
+  }
+
+  &.isAbout {
+    padding: 24rem 6rem 6rem;
+
+    @include respond(tab-land) {
+      padding: 7.2rem 2.4rem;
+    }
+  }
+}

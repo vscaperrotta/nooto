@@ -1,0 +1,75 @@
+{
+  "name": "nooto",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Nōto - ノート is a text editor based on Redux Persist to memorized your notes.",
+  "main": "index.jsx",
+  "author": "Vittorio Scaperrotta",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 20.18.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "generate": "plop --plopfile generators/index.js",
+    "git-cz": "git-cz",
+    "preview": "vite preview"
+  },
+  "betterScripts": {
+    "generate": "npm run generate",
+    "commit": "npm run git-cz"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
+    "axios": "^1.6.8",
+    "eslint": "^8.52.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-redux-saga": "^1.3.2",
+    "immer": "^9.0.21",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intl": "^7.0.4",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.10.0",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-encrypt": "^5.1.1",
+    "redux-saga": "^1.2.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "better-npm-run": "^0.1.1",
+    "chalk": "^5.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "plop": "^3.1.2",
+    "prettier": "^3.0.0",
+    "sass": "^1.60.0",
+    "terser": "^5.22.0",
+    "vite": "^4.5.3",
+    "vite-plugin-eslint": "^1.8.1"
+  },
+  "packageManager": "yarn@4.5.0"
+}

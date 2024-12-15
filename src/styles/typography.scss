@@ -1,0 +1,56 @@
+h1 {
+  color: var(--secondary);
+  font-size: 4rem;
+}
+
+h2 {
+  color: var(--secondary);
+  font-size: 3.6rem;
+}
+
+h3 {
+  color: var(--secondary);
+  font-size: 3.2rem;
+}
+
+h4 {
+  color: var(--secondary);
+  font-size: 2.8rem;
+}
+
+h5 {
+  color: var(--secondary);
+  font-size: 2.4rem;
+}
+
+h6 {
+  color: var(--secondary);
+  font-size: 2rem;
+}
+
+p {
+  color: var(--secondary);
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  letter-spacing: .1rem;
+}
+
+a {
+  color: var(--secondary);
+  font-size: 1.6rem;
+  text-decoration: none;
+  letter-spacing: .1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  &::selection {
+    background: var(--drag-background);
+  }
+}

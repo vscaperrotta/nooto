@@ -1,0 +1,7 @@
+{{#if container}}
+import {{ properCase componentName }} from './{{ properCase componentName }}Container';
+{{else}}
+import {{ properCase componentName }} from './{{ properCase componentName }}';
+{{/if}}
+
+export default {{properCase componentName}};

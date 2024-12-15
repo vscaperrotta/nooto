@@ -1,0 +1,90 @@
+/**
+ *
+ * Home Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 16-Nov-2024
+*/
+
+
+.container {
+  position: relative;
+
+  .header {
+    font-size: 6.8rem;
+    margin: 0 0 4rem;
+    position: relative;
+  }
+
+  .newNote {
+    border-bottom: .1rem solid rgba(var(--seconday), .2);
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .list {
+    max-width: 102.4rem;
+    width: 100%;
+    z-index: 3;
+
+    .item {
+      margin-bottom: 4rem;
+      width: 100%;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .title {
+    position: relative;
+    z-index: 3;
+  }
+
+  .subtitle {
+    position: relative;
+    z-index: 3;
+  }
+
+  .kanji {
+    font-size: 18rem;
+    left: 0;
+    line-height: 20rem;
+    position: absolute;
+    opacity: .1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: pre-wrap;
+    width: 24rem;
+    word-break: break-all;
+    z-index: 1;
+  }
+
+  &.noNotes {
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
+
+    .header {
+      margin: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .title {
+      font-size: 5.6rem;
+      z-index: 2;
+    }
+
+    .subtitle {
+      font-size: 3.2rem;
+      opacity: .4;
+    }
+  }
+}

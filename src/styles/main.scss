@@ -1,0 +1,108 @@
+@import './themes';
+@import './fonts';
+
+// Clean up
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Initialize
+html {
+  box-sizing: border-box;
+
+  // This defines what is 1rem
+  font-size: 62.5%; // 1 rem = 10px; 10px/16px = 62.5%
+}
+
+// Themes
+html[data-theme='LIGHT'] {
+  @include theme-light;
+}
+
+html[data-theme='DARK'] {
+  @include theme-dark;
+}
+
+html[data-theme='MONOKAI'] {
+  @include theme-monokai;
+}
+
+html[data-theme='NEON'] {
+  @include theme-neon;
+}
+
+html[data-theme='FLORA'] {
+  @include theme-flora;
+}
+
+html[data-theme='NIGHT'] {
+  @include theme-night;
+}
+
+// Font
+html[data-font='SERIF'] {
+  @include font-serif;
+}
+
+html[data-font='SANS_SERIF'] {
+  @include font-sans-serif;
+}
+
+html[data-font='SLAB'] {
+  @include font-slab;
+}
+
+// Global styles
+body {
+  background-color: var(--primary);
+  flex: 1 0 auto;
+  font-size: 1.8rem;
+  height: 100%;
+  letter-spacing: .1rem;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+
+  b {
+    font-weight: 600;
+  }
+
+  * {
+    font-family: var(--font-family);
+  }
+}
+
+input,
+select,
+textarea {
+  // hide Spinner in Input Number for firefox
+  appearance: textfield;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s; // avoid webkit-autofill browser background color
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  // hide Spinner in Input Number for every browser except firefox
+  appearance: none;
+  margin: 0;
+}
+
+input::-ms-clear {
+  display: none;
+}

@@ -1,0 +1,28 @@
+/*
+ *
+ * {{properCase routeName}} Reducer
+ *
+ * @author {{username}}
+ * @date {{date}}
+ */
+
+
+import produce from 'immer';
+
+const ACTION_HANDLERS = {
+  // @generator reducer:type:action
+};
+
+// The initial state of the food reducer
+const initialState = {
+  data: {},
+  loading: false,
+  error: null,
+};
+
+const {{properCase routeName}} = (state = initialState, action) => {
+  const handler = ACTION_HANDLERS[action.type];
+  return handler ? handler(state, action) : state;
+};
+
+export default {{properCase routeName}};

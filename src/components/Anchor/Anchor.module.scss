@@ -1,0 +1,23 @@
+/**
+ *
+ * Anchor Styles
+ *
+ * @version 1.0.0
+ *
+ * @author Vittorio Scaperrotta
+ * @since 18-Nov-2024
+*/
+
+.container {
+  background-color: transparent;
+  border: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  opacity: .7;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
